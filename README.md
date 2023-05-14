@@ -101,24 +101,89 @@ From the above characteristic table, we can directly write the next state equati
 Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
-### Procedure
-/* write all the steps invloved */
+### Procedure:
+STEP 1: Open Quartus II and select new project and choose the file location.
+
+STEP 2: Module Declaration. Module should have the file name.
+
+STEPS 3: Input-Output Delecaration.
+
+STEPS 4: Use assign declaration and wire to define the functionality of logic circuits.
+
+STEP 5: At the end give endmodule.
+
+STEP 6: Run the program and choose RTL viewer to get RTL realization.
+
 
 
 
 ### PROGRAM 
-/*
+```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: S.SUBASHINI.S
+RegisterNumber:  22009344
+SR FLIP-FLOP:
+
+module sr(s,r,clk,Q,Qbar);
+input s,r,Clk;
+output Q,Qbar;
+wire X,Y;
+nand (X,s,Clk);
+nand (Y,r,Clk);
+nand (Q,X,Qbar);
+nand(Qbar,Y,Q);
+endmodule
+
+D FLIP-FLOP:
+
+module DF (D,Clock,Q,Qbar);
+input D,Clock;
+output Q,Qbar;
+assign Dbar = ~D;
+wire X,Y;
+nand (X,D,Clock);
+nand (Y,Dbar,Clock);
+nand (Q,X,Qbar);
+nand (Qbar,Y,Q);
+endmodule
+
+
+JK FLIP-FLOP:
+
+module jk(J,K,clk,Q,Qbar);
+input J,K,clk;
+output Q,Qbar;
+wire P,S;
+nand (P,J,clk,Qbar);
+nand (S,K,clk,Q);
+nand (Q,P,Qbar);
+nand (Qbar,S,Q);
+endmodule
+
+T FLIP-FLOP:
+
+module TF (T,Clock,Q,Qbar);
+input T,Clock;
+output Q,Qbar;
+wire A,B;
+nand (A,T,Clock,Qbar);
+nand (B,T,Clock,Q);
+nand (Q,A,Qbar);
+nand (Qbar,B,Q);
+endmodule
+```
 
 
 
 
 
 
-### RTL LOGIC FOR FLIPFLOPS 
+
+### RTL LOGIC FOR FLIPFLOPS:
+SR FLIP-FLOP:
+
+
+![image](https://github.com/SubashiniSenniappan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/119404951/1980c46d-527f-4e1b-be36-6cc84f770072)
 
 
 
@@ -126,15 +191,32 @@ RegisterNumber:
 
 
 
+### TIMING DIGRAMS FOR FLIP FLOPS:
+![image](https://github.com/SubashiniSenniappan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/119404951/03611c52-1b1f-48c8-b677-1b1dd66c5d69)
 
+### RTL LOGIC FLIP-FLOPS:
 
-### TIMING DIGRAMS FOR FLIP FLOPS 
+ JK FLIPFLOP
+![image](https://github.com/SubashiniSenniappan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/119404951/b449c243-56b3-45be-a800-4b99512ac152)
 
+### TIMING DIAGRAMS FOR FLIP-FLOPS:
 
+![image](https://github.com/SubashiniSenniappan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/119404951/ac501252-4281-4104-888b-637fb81aa73e)
 
+### RTL LOGIC FOR FLIP-FLOPS:
+D FLIP-FLOP
+![image](https://github.com/SubashiniSenniappan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/119404951/4f985953-815e-4a4d-8871-83acc26a11e4)
 
+### TIMING DIAGRAMS FOR FLIP-FLOP:
+D FLIP-FLOP
+![image](https://github.com/SubashiniSenniappan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/119404951/3073f862-b197-43e1-a88d-6907fdc48f12)
 
+### RTL LOGIC FOR FLIUP-FLOPS T FLIP-FLOPS:
+![image](https://github.com/SubashiniSenniappan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/119404951/ba751daf-9e9d-4dfd-b9a0-a4238b21dd28)
 
-
+### TIMING DIAGRAMS FOR FLIP-FLOPS:
+![image](https://github.com/SubashiniSenniappan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/119404951/cf23c1d8-028e-4999-82f7-46c5b845b53a)
 
 ### RESULTS 
+All the flipflops are implemented using verilog and their functionality has been validated using their functional tables.
+
